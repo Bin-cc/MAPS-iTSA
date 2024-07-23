@@ -34,3 +34,12 @@ We expand MAPS strategy to 1,080 FDA approved drugs for large scale target decon
 > adjust_text 0.8, Bio 1.6.2, biomart 0.9.2, imbalanced-learn 0.11.0\
 > matplotlib 3.7.2, multiprocessing 0.70.14, networkx 3.1, numpy 1.24.3\
 > pandas 1.5.3, pickle 0.7.5, seaborn 0.11.2, scipy 1.11.1, scikit-learn 1.3.0\
+## 2. Workflow and output files
++ **data process&QC visilization**: Basic data cleaning (i.e. filtering low confidence proteins based on PSM and median normalization) for generation of files in revised result
++ **data normalization**: Calculation, combination and integration of in total 45 groups from different two MS instrucments. During the pvalue calculation, we employed DBSCAN to overcome the problem that two drugs target to same proteins within same groups. The generated result is located in **results** file and we got an output table `1. sig_all_drug_prot.xlsx` which include all drug-protein pairs information across 45 groups with the threhold `fc > 0.1 & pvalue < 0.05`
++ **article auto search for drug-protein pairs**: With the utilization of Bio package and PubMed, we achieve article auto search for all drug-protein pairs in `1. sig_all_drug_prot.xlsx`. Then, we also combine the information from DrugBank and STITCH to maximize the source of known drug-protein pairs and the result can be checked in `2. drug_target_report.xlsx`
++ **threshold analysis**: Here, we set out different pairwised fc and pvalue but can not obtain an idea threshold combination. Therefore, the other approches need to be considered (such as machine learning) to discover more confident drug-protein pairs
++ **balancedRF**: We employed a machine learning algorithm namely Balanced Radom Forest Classifier (BRFC) to predict high-confidence drug-protein pairs, comprehensively including various features. The features and prediction result can be checked in `3. output_table_features.csv`
++ **network_assembly**: Network analysis based on the result of `3. output_table_features.csv`
++ **volcano plot of summary data**: Drug-centric and protein-centric volcano plot to visualize significant proteins and drugs respectively
++ **public resource**: In total 1,037 significant proteins were clasified based on database, like Pharos, Panther, HPA, to descript the characteristics of these proteins. The combination result generate table `4. public resource data.xlsx`
