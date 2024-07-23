@@ -27,3 +27,10 @@ We expand MAPS strategy to 1,080 FDA approved drugs for large scale target decon
 + **auto search articles**: PubMed search result for significant drug-protein pairs (fc > 0.1 & pvalue < 0.05)
 + **drugs**: Structure images of 44 drugs that identified more than 10 significant proteins
 + The .py files include all function codes called by **notebooks** code
+# Utilization of codes in notebook
+## 1. Environment and packages
++ All the codes are programmed by Python (version 3.11)
++ Following main packages will be implemented:
+> adjust_text 0.8, Bio 1.6.2, biomart 0.9.2, imbalanced-learn 0.11.0\
+> matplotlib 3.7.2, multiprocessing 0.70.14, networkx 3.1, numpy 1.24.3\
+> pandas 1.5.3, pickle 0.7.5, seaborn 0.11.2, scipy 1.11.1, scikit-learn 1.3.0\
